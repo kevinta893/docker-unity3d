@@ -1,5 +1,6 @@
 #!/bin/sh
-UNITY_OPTIONS="-batchmode -quit"
+LOG_FILE=./log/unity-linux.log
+UNITY_OPTIONS="-batchmode -quit -force-opengl -nographics -silent-crashes -buildLinux64Player $(pwd)/build/linux64/ci-build.app -logFile $LOG_FILE"
 
 E_NOARGS=85
 if [ -z "$1" ]
