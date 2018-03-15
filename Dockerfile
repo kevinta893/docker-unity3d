@@ -4,9 +4,9 @@ RUN apt-get -qq update && apt-get -qq install -y \
     && rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /root/.cache/unity3d && mkdir -p /root/.local/share/unity3d
 ADD get-unity.sh /app/get-unity.sh
-RUN chmod +x /app/get-unity.sh && \
-    /app/get-unity.sh && \
-    dpkg -i /app/unity_editor.deb && \
-    rm /app/unity_editor.deb
+RUN chmod +x /app/get-unity.sh
+RUN /app/get-unity.sh
+RUN dpkg -i /app/unity_editor.deb
+RUN rm /app/unity_editor.deb
 ADD unity_wrapper.sh /usr/local/bin/unity_wrapper.sh
 RUN chmod +x /usr/local/bin/unity_wrapper.sh
